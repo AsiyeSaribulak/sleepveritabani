@@ -1,5 +1,5 @@
 import 'package:sleepveritabani/DBHelper.dart';
-import 'package:sleepveritabani/SleepData.dart';
+import 'package:sleepveritabani/models/SleepData.dart';
 
 class SleepDao {
   Future<List<SleepData>> getSleeps() async {
