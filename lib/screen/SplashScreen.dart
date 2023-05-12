@@ -12,16 +12,6 @@ class SplashScreen extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: AnimatedSplashScreen(
           splash: Lottie.asset('assets/sleep.json'),
-          // Column(
-          //   children: [
-          //     Image.asset('assets/asleepblack.png'),
-          //     const Text(
-          //       "ZZZZzzzzZZZzzz",
-          //       style: TextStyle(
-          //           fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
-          //     )
-          //   ],
-          // ),
           backgroundColor: Color.fromARGB(253, 14, 18, 49),
           nextScreen: const Anasayfa(),
           splashIconSize: 250,

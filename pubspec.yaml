@@ -53,6 +53,7 @@ dependencies:
   iconsax: ^0.0.8
   http: ^0.13.6
   html: ^0.15.3
+ 
 
     
 
@@ -106,6 +107,7 @@ flutter:
           weight: 500
         - asset: assets/fonts/Avenir-Light.ttf
           weight: 300
+  generate: true        
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -133,3 +135,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+   

@@ -6,8 +6,30 @@ import 'package:sleepveritabani/models/alarm/data.dart';
 import 'package:sleepveritabani/models/alarm/tema.dart';
 import 'package:sleepveritabani/modules/AlarmPage.dart';
 import 'package:sleepveritabani/modules/ClockPage.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:provider/provider.dart';
+import 'package:sleepveritabani/models/alarm/MenuInfo.dart';
+import 'package:sleepveritabani/modules/AlarmAnasayfa.dart';
 
 class AlarmAnasayfa extends StatefulWidget {
+  // const AlarmAnasayfa({super.key});
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+
+  AlarmAnasayfa({super.key}) {
+    var initializationSettingsAndroid = AndroidInitializationSettings('resim');
+    var initializationSettings =
+        InitializationSettings(android: initializationSettingsAndroid);
+    flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onDidReceiveNotificationResponse:
+            (NotificationResponse notificationResponse) async {
+      final String? payload = notificationResponse.payload;
+      if (notificationResponse.payload != null) {
+        debugPrint('notification payload: $payload');
+      }
+    });
+  }
+
   @override
   _AlarmAnasayfaState createState() => _AlarmAnasayfaState();
 }
@@ -16,6 +38,22 @@ class _AlarmAnasayfaState extends State<AlarmAnasayfa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Uyku Zamanı',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(Icons.arrow_back)),
+        centerTitle: true,
+        backgroundColor: Colors.blueGrey[900],
+        elevation: 0,
+      ),
       backgroundColor: CustomColors.pageBackgroundColor,
       body: Row(
         children: <Widget>[

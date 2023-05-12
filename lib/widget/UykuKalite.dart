@@ -14,9 +14,9 @@ class UykuKalite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.background,
+      backgroundColor: CustomColors.tahtaBackground,
       appBar: AppBar(
-        backgroundColor: CustomColors.background,
+        backgroundColor: CustomColors.tahtaBackground,
         title: const Text('İyi Bir Uyku İçin Neler Yapmalısın?'),
       ),
       body: SingleChildScrollView(

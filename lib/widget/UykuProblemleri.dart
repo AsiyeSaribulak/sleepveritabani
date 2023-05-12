@@ -46,9 +46,9 @@ class _UykuProblemleriState extends State<UykuProblemleri> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.background,
+      backgroundColor: CustomColors.mintBackground,
       appBar: AppBar(
-        backgroundColor: CustomColors.background,
+        backgroundColor: CustomColors.mintBackground,
         title: Text(
           "Uyku Problemleri",
           style: TextStyle(

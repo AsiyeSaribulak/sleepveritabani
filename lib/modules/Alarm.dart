@@ -6,6 +6,8 @@ import 'package:sleepveritabani/modules/AlarmAnasayfa.dart';
 
 import '../enum.dart';
 
+/**BU SAYFAYI KULLANMA DAHA SADECE ÖNCEDEN NE YAPTIĞIN BİL DİYE KALSIN BU */
+
 class Alarm {
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
@@ -26,6 +28,7 @@ class Alarm {
     });
     runApp(
       MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
