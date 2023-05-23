@@ -53,6 +53,8 @@ dependencies:
   iconsax: ^0.0.8
   http: ^0.13.6
   html: ^0.15.3
+  sklite: ^1.0.0
+  flutter_bloc: ^8.1.2
  
 
     
@@ -97,6 +99,7 @@ flutter:
      - veritabani/sleep_sleep.sqbpro
      - android/app/src/main/res/drawable/resim.jpeg
      - assets/
+     
   fonts:
     - family: avenir
       fonts:

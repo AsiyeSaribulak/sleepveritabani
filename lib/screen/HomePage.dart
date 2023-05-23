@@ -7,6 +7,7 @@ import 'package:sleepveritabani/modules/Alarm.dart';
 import 'package:sleepveritabani/modules/AlarmAnasayfa.dart';
 import 'package:sleepveritabani/utils/PopupMenu.dart';
 import 'package:sleepveritabani/widget/TabScroll.dart';
+import 'package:sleepveritabani/widget/GunlukKaydet.dart';
 import 'package:sleepveritabani/widget/UykuKalite.dart';
 import 'package:sleepveritabani/widget/UykuProblemleri.dart';
 
@@ -47,6 +48,12 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const GunlukKaydet(),
+                  ),
+                );
                 print("uyku günlüğüne tıklandı");
               },
               child: Container(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:intl/intl.dart';
 import 'package:sleepveritabani/screen/AlarmDao.dart';
-import 'package:sleepveritabani/AlarmHelper.dart';
+import 'package:sleepveritabani/models/alarm/AlarmHelper.dart';
 import 'package:sleepveritabani/DBHelper.dart';
 import 'package:sleepveritabani/models/alarm/AlarmData.dart';
 import 'package:sleepveritabani/models/alarm/tema.dart';
@@ -117,7 +117,7 @@ class _AlarmPageState extends State<AlarmPage> {
                               ],
                             ),
                             const Text(
-                              'Mon-Fri',
+                              'Pzt-cuma',
                               style: TextStyle(
                                   color: Colors.white, fontFamily: 'avenir'),
                             ),
@@ -215,7 +215,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                                 ),
                                               ),
                                               ListTile(
-                                                title: const Text('Repeat'),
+                                                title: const Text('Tekrar'),
                                                 trailing: Switch(
                                                   onChanged: (value) {
                                                     setModalState(() {
@@ -226,12 +226,12 @@ class _AlarmPageState extends State<AlarmPage> {
                                                 ),
                                               ),
                                               const ListTile(
-                                                title: Text('Sound'),
+                                                title: Text('Ses'),
                                                 trailing: Icon(
                                                     Icons.arrow_forward_ios),
                                               ),
                                               const ListTile(
-                                                title: Text('Title'),
+                                                title: Text('Basşlık'),
                                                 trailing: Icon(
                                                     Icons.arrow_forward_ios),
                                               ),

@@ -26,6 +26,7 @@ class CustomColors {
   static Color pinkBackground = const Color.fromARGB(255, 240, 99, 168);
   static Color mintBackground = const Color.fromARGB(255, 0, 118, 147);
   static Color tahtaBackground = const Color.fromARGB(255, 180, 136, 86);
+  static Color addBackground = const Color.fromARGB(255, 199, 159, 48);
 }
 
 class GradientColors {
