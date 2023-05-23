@@ -1,32 +1,3 @@
-[
-  {
-    "id":"1",
-    "title":"Uykusuzluk(Insomnia) ",
-    "content":"Uykusuzluk (insomnia), uykuya dalma ve uykuyu sürdürmede güçlük çekme, normalden erken uyanma, gün içinde uykulu olma olarak tanımlanır. Herkes birkaç gece uykusuzluk çekebilir ancak bunun haftalar, aylar sürmesi durumunda uykusuzluktan (insomnia), kronik uykusuzluktan bahsedilebilir. Uykusuzluk ilaç kullanımı, tiroid hastalıkları, gürültü, ışık, kronik stres, depresyon ve psikolojik sebeplerden kaynaklanabilmektedir.Genellikle bunun psikiyatrik rahatsızlıklardan kaynaklandığı ve buna bağlı gelişen ikincil bir rahatsızlık olduğu düşünülür. Her üç kişiden birinde uykusuzluk görülür. Uykusuzluk her yaşta görülebilir ancak kadınlarda ve ileri yaştakilerde görülme sıklığı daha fazladır.Toplumda görülme sıklığı çok fazla olmasına rağmen hekime başvurma oranı düşüktür. Ciddi bir psikiyatrik rahatsızlığın işareti olabileceği için iyi izlemek ve bir hekime başvurmak gerekir.Uyku Apnesi: Uyku bozukluğu çekenler genelde uygunsuz ortamlarda uykuya dalmazlar. Eğer böyle bir durum varsa insomnianın sebebi uyku apnesidir. Gündüz çok fazla uyuklama, yorgunluk, baş ağrısıyla uyanma, horlama ya da uyurken nefessiz kalma uyku apnesi belirtileridir. "
-  },
-  {
-    "id":"2",
-    "title":"Aşırı Uykululuk (Hipersomnia)",
-    "content":"Çok uyuma anlamına gelen hipersomnia, aşırı uykululuk ve gündüzleri uyma eğilimi olmak üzere iki türdür. Genelde başka psikiyatrik rahatsızlıklarla eş zamanlı görülür ancak onların öncülü olduğu zamanlarda olabilir. Patolojik olmadığı durumlarda vardır. Ailede yaygın bir durum olmasıyla ya da kişilik özellikleriyle ilgili olabilir. Hipersomnia akciğer, karaciğer rahatsızlıklarına, beyiz lezyonuna ya da kalp hastalıklarına bağlı da gelişebilir. Bu yüzden hipersomnia şüphesi olan hastaların bir doktora başvurması tavsiye edilir. Narkolepsi: Gündüzleri aşırı uyuma eğilimi, uyku atakları görülmesi durumudur. Bu kısa süreli uykularda çok çabuk dalma, rüya veya rüya benzeri halüsinasyon görme gibi özellikleri vardır. Gülerken ya da ağlarken kullanılan kasların kontrolünde zayıflama görülür. Sabah uyandığında hemen kalkamama, bir süre hareketsiz kalma gibi durumlar görülür. Yapılan testlerde, narkolepsi hastalarında normalde olması gerekenden çok daha erken (uykunun ilk 5-10 dakikasında) REM uykusu adı verilen faza geçildiği görülür. "
-  },
-  {
-    "id":"3",
-    "title":"Huzursuz Bacak Sendromu",
-    "content":"Huzursuz bacak sendromu, uykuda hareket bozukluklarından en sık karşılaşılan bozukluktur. Hastalar, uyurken ya da istirahat halindeyken bacaklarını hareket ettirme ihtiyacı hissederler. Belirtileri kişiden kişiye göre değişmekle beraber hastalar genellikle karıncalanma, uyuşma gibi ifadelerle tarif ederler. Bacaklardaki gibi rahatsız edici etkiler kollarda da görülebilir. Hareketsiz bir şekilde yatmaya devam etmek bu hissi arttırır. Bu yüzden bacaklarını hareket ettirerek, gererek bu hissi kısa süreli de olsa geçirmeye çalışırlar.Bu durum kimi hastalarda her gece görülürken kimilerinde birkaç gecede bir görülebilir. Uyku kalitesinin düşmesine sebep olur ve sosyal hayatı olumsuz etkiler. Hareketsiz bir şekilde oturmak zorunda oldukları toplantı, sinema, tiyatro gibi yerlerde zorlanabilirler. Kalitesiz uyku ve uyku bölünmesi anksiyete ya da depresyona sebep olabilir. "
-  },
-  {
-    "id":"4",
-    "title":"Rüya Sıkıntı Bozukluğu",
-    "content":"Herkes uyurken kötü rüyalar görebilir. Ancak normalde bu rüyaların insanları uyandırmaması gerekir ve tekrar etme eğiliminde değildir. Uyurken sıklıkla korkunç rüyalar görmek ve korku içinde uyanmak rüya sıkıntı bozukluğu işareti olabilir. Uykudan uyandıklarında rüya gördüklerini hemen anlarlar. Ancak bunun tekrar etme eğiliminin yüksek olması uyku kalitesini düşürür ve sosyal, mesleki hayatı olumsuz etkiler. "
-  },
-  {
-    "id":"5",
-    "title":"Uyurgezerlik",
-    "content":"Genellikle 10 yaş civarındaki çocuklarda görülür. Uykuya daldıktan hemen sonra, uykunun ilk üçte birlik bölümünde görülür çoğunlukla. Yataktan kalkıp bazı otomatik hareketler yapar. Sadece yataktan kalkıp birkaç adım atabilir, giyinir, tuvalete gider. Ya da eşyaların yerini değiştirmek, evden dışarı çıkmak gibi karmaşık işler de yapabilir.Bu durum bazı yaralanmalara sebep olabileceği önlem almak gerekir. Ancak çoğunlukla tedavi gerektiren bir rahatsızlık ya da başka bir rahatsızlığın işaretçisi olarak görülmez. Yaş ilerledikçe görülme sıklığı azalır, nadiren de olsa yetişkinlerde de görülebilir."
-  },
-  {
-    "id":"6",
-    "title":"Uyku Felci",
-    "content":"Uyku felci, halk arasında “karabasan” olarak adlandırılır. Uyandıktan hemen sonra ya da nadiren de olsa uykuya dalma aşamasında vücudun geçici olarak hareketsiz kalması durumudur. İnsanlar bu durumda bilinci açık olmasına rağmen bedenini hareket ettiremez. Bu durumla beraber halüsinasyonlar da görülebilir. Bu halüsinasyonlar kişinin içinde bulunduğu durumu normal bir rüya zannetmesine sebep olabilir. Bu yüzden pek çok kişi hareket edemediği rüyalar gördüğünü anlatır. Bu halüsinasyonlar kimi zaman da oda içinde hayali şeyler görülmesine sebep olabilir."
-  }
-]
+version https://git-lfs.github.com/spec/v1
+oid sha256:051b129f493d69ed1b694d73294e6ef1329c64e566ba9e9f8108b7612c253833
+size 5479
