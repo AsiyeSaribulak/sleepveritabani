@@ -6,6 +6,7 @@ import 'package:sleepveritabani/models/alarm/tema.dart';
 import 'package:sleepveritabani/modules/Alarm.dart';
 import 'package:sleepveritabani/screen/HomePage.dart';
 import 'package:sleepveritabani/screen/UykuPage.dart';
+import 'package:sleepveritabani/widget/QualityChart.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 import 'package:flutter/material.dart';
@@ -59,8 +60,8 @@ class _AnasayfaState extends State<Anasayfa> {
             ),
             SizedBox(
               child: Container(
-                child:
-                    const Text("Kayıt", style: TextStyle(color: Colors.white)),
+                child:QualityChart(),
+                    //const Text("Kayıt", style: TextStyle(color: Colors.white)),
               ),
             ),
             SizedBox(

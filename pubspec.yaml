@@ -55,6 +55,11 @@ dependencies:
   html: ^0.15.3
   sklite: ^1.0.0
   flutter_bloc: ^8.1.2
+  spotify: ^0.11.0
+  just_audio: ^0.9.33
+  just_audio_background: any
+  audioplayers: ^4.0.1
+  youtube_player_flutter: ^8.1.2
  
 
     
@@ -99,6 +104,7 @@ flutter:
      - veritabani/sleep_sleep.sqbpro
      - android/app/src/main/res/drawable/resim.jpeg
      - assets/
+     - assets/muzik/
      
   fonts:
     - family: avenir
@@ -109,6 +115,8 @@ flutter:
         - asset: assets/fonts/Avenir-Medium.ttf
           weight: 500
         - asset: assets/fonts/Avenir-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Christmas Brush TTF Personal.ttf
           weight: 300
   generate: true        
   #  - images/a_dot_ham.jpeg

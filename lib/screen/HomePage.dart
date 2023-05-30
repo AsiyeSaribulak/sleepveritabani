@@ -6,6 +6,7 @@ import 'package:sleepveritabani/models/alarm/tema.dart';
 import 'package:sleepveritabani/modules/Alarm.dart';
 import 'package:sleepveritabani/modules/AlarmAnasayfa.dart';
 import 'package:sleepveritabani/utils/PopupMenu.dart';
+import 'package:sleepveritabani/widget/Doga.dart';
 import 'package:sleepveritabani/widget/TabScroll.dart';
 import 'package:sleepveritabani/widget/GunlukKaydet.dart';
 import 'package:sleepveritabani/widget/UykuKalite.dart';
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/background.png"),
+            image: AssetImage("assets/anasayfa.jpg"),
             fit: BoxFit.fill,
           ),
         ),
@@ -263,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           decoration: BoxDecoration(
                             image: const DecorationImage(
-                              image: AssetImage("assets/sleepless.png"),
+                              image: AssetImage("assets/uykuproblemi.jpg"),
                               fit: BoxFit.fill,
                             ),
                             color: CustomColors.background,
@@ -319,7 +320,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           decoration: BoxDecoration(
                             image: const DecorationImage(
-                                image: AssetImage("assets/music.png"),
+                                image: AssetImage("assets/uykumuzik.jpg"),
                                 fit: BoxFit.fill),
                             color: CustomColors.background,
                             borderRadius: const BorderRadius.only(

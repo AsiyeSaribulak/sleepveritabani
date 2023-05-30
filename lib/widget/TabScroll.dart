@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sleepveritabani/models/alarm/tema.dart';
+import 'package:sleepveritabani/widget/Doga.dart';
+import 'package:sleepveritabani/widget/HizliUyku.dart';
+import 'package:sleepveritabani/widget/Meditasyon.dart';
+import 'package:sleepveritabani/widget/Ninni.dart';
 
 class TabScroll extends StatefulWidget {
   TabScroll({Key? key}) : super(key: key);
@@ -26,14 +31,19 @@ class _TabScrollState extends State<TabScroll>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColors.background,
       appBar: AppBar(
+        backgroundColor: CustomColors.background,
+        title: const Text("Müzikler"),
         bottom: TabBar(
+          indicatorColor: CustomColors.greenColor,
+          dividerColor: CustomColors.greenColor,
           controller: _tabController,
-          tabs: [
-            const Tab(text: "Meditasyon"),
-            const Tab(text: "Hızlı Uyku"),
-            const Tab(text: "Doğa"),
-            const Tab(text: "Yağmur"),
+          tabs: const [
+            Tab(text: "Meditasyon"),
+            Tab(text: "Hızlı Uyku"),
+            Tab(text: "Doğa"),
+            Tab(text: "Ninni"),
           ],
         ),
       ),
@@ -43,97 +53,23 @@ class _TabScrollState extends State<TabScroll>
           // Meditasyon
           Container(
             padding: const EdgeInsets.all(8.0),
-            child: GridView.builder(
-              itemCount: 10,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemBuilder: (BuildContext context, int index) {
-                return SizedBox(
-                  height: 300,
-                  child: Card(
-                    clipBehavior: Clip.antiAlias,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Column(
-                        children: <Widget>[
-                          Image.network('https://picsum.photos/250?image=9'),
-                          //Text('Meditasyon $index'),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
+            child: Meditasyon(),
           ),
 
           // Hızlı Uyku
           Container(
             padding: const EdgeInsets.all(8.0),
-            child: GridView.builder(
-              itemCount: 10,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  child: InkWell(
-                    onTap: () {},
-                    child: Column(
-                      children: <Widget>[
-                        Image.network('https://picsum.photos/250?image=9'),
-                        Text('Hızlı Uyku $index'),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
+            child: HizliUyku(),
           ),
 
           // Doğa
           Container(
             padding: const EdgeInsets.all(8.0),
-            child: GridView.builder(
-              itemCount: 10,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  child: InkWell(
-                    onTap: () {},
-                    child: Column(
-                      children: <Widget>[
-                        Image.network('https://picsum.photos/250?image=9'),
-                        Text('Doğa $index'),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
+            child: Doga(),
           ),
-
-          // Yağmur
           Container(
             padding: const EdgeInsets.all(8.0),
-            child: GridView.builder(
-              itemCount: 10,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  child: InkWell(
-                    onTap: () {},
-                    child: Column(
-                      children: <Widget>[
-                        Image.network('https://picsum.photos/250?image=9'),
-                        Text('Yağmur $index'),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
+            child: Ninni(),
           ),
         ],
       ),

@@ -8,6 +8,7 @@ import 'package:sklite/neural_network/neural_network.dart';
 import 'package:sleepveritabani/GunlukDao.dart';
 import 'package:sleepveritabani/models/GunlukModel.dart';
 import 'package:sleepveritabani/models/alarm/tema.dart';
+import 'package:sleepveritabani/widget/SleepQualityList.dart';
 import 'package:sleepveritabani/widget/TableWidget.dart';
 import 'package:sleepveritabani/GunlukDao.dart';
 
@@ -22,62 +23,26 @@ class GunlukKaydet extends StatefulWidget {
 
 class _GunlukKaydetState extends State<GunlukKaydet> {
   MLPClassifier? mlp;
+  GunlukModel? gunlukModel;
   var now = DateTime.now().toLocal(); //yerel tarih
-  String formatDate =
-      DateFormat('dd-MM-yyyy').format(DateTime.now()); //yıl-ay-gün formatı
 
+  String formatDate = DateFormat('dd-MM-yyyy').format(DateTime.now()); //yıl-ay-gün formatı
   final uykuBaslangicController = TextEditingController();
   final uykuBitisController = TextEditingController();
   final adimSayisiController = TextEditingController();
   final kalpAtisHiziController = TextEditingController();
   final uykuNotuController = TextEditingController();
 
-  Future<String> uykuVerileriniHesapla(
-      String uykuBaslangic, String uykuBitis, String adimSayisi) async {
-    List<String> baslangicSplit = uykuBaslangic.split(':');
-    int baslangicSaat = int.parse(baslangicSplit[0]);
-    int baslangicDakika = int.parse(baslangicSplit[1]);
 
-    List<String> bitisSplit = uykuBitis.split(':');
-    int bitisSaat = int.parse(bitisSplit[0]);
-    int bitisDakika = int.parse(bitisSplit[1]);
-    DateTime now = DateTime.now();
-    DateTime baslangic =
-        DateTime(now.year, now.month, now.day, baslangicSaat, baslangicDakika);
-    DateTime bitis =
-        DateTime(now.year, now.month, now.day, bitisSaat, bitisDakika);
-    double startTime = baslangic.millisecondsSinceEpoch / 1000;
-    double endTime = bitis.millisecondsSinceEpoch / 1000;
-    // startTime - endTime işlemiyle sonucTime hesapla
-    double sonucTime = startTime - endTime;
-    // uykuBaslangic ve uykuBitis değerlerini saniyeye dönüştür
-    double uykuBaslangicSaniye = baslangic.hour * 3600 + baslangic.minute * 60;
-    double uykuBitisSaniye = bitis.hour * 3600 + bitis.minute * 60;
-    double adimsayisi = double.parse(adimSayisi);
 
-    List<double> X = [
-      sonucTime,
-      uykuBaslangicSaniye,
-      uykuBitisSaniye,
-      adimsayisi
-    ];
-
-    String a = await loadModel("assets/mlsleep.json");
-    this.mlp = MLPClassifier.fromMap(json.decode(a));
-
-    String? sleepQuality = mlp!.predict(X).toString();
-
-    return sleepQuality;
-  }
-
-  Future<String> getSleepQuality(
-      String uykuBaslangic, String uykuBitis, String adimSayisi) async {
-    String sleepQuality =
-        await uykuVerileriniHesapla(uykuBaslangic, uykuBitis, adimSayisi);
-    setState(() {
-      sleepQuality = sleepQuality;
-    });
-    return sleepQuality;
+  void saveData(String date, String start, String end, double steps,
+      int heartRate, String sleepNotes, String sleepQuality) async{
+    await GunlukDao().createData(date, start, end, steps, heartRate, sleepNotes, sleepQuality);
+    List<Map<String,dynamic>> sleepdata=await GunlukDao().getDateAndSleepQuality();
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SleepQualityList(sleepdata:sleepdata))
+    );
   }
 
   List<DataRow> tabloyaEkle() {
@@ -91,12 +56,12 @@ class _GunlukKaydetState extends State<GunlukKaydet> {
     tableRows.add(
       DataRow(
         cells: <DataCell>[
-          DataCell(Text(formatDate)), //gün değeri
-          DataCell(Text(uykuBaslangic)),
-          DataCell(Text(uykuBitis)),
-          DataCell(Text(adimSayisi)),
-          DataCell(Text(kalpAtisHizi)),
-          DataCell(Text(uykuNotu)),
+          DataCell(Text(formatDate,style: style(),)), //gün değeri
+          DataCell(Text(uykuBaslangic,style: style())),
+          DataCell(Text(uykuBitis,style: style())),
+          DataCell(Text(adimSayisi,style: style())),
+          DataCell(Text(kalpAtisHizi,style: style())),
+          DataCell(Text(uykuNotu,style: style())),
         ],
       ),
     );
@@ -110,9 +75,10 @@ class _GunlukKaydetState extends State<GunlukKaydet> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
+
           decoration: const BoxDecoration(
               image: DecorationImage(
-            image: AssetImage("assets/gunlukbackground.PNG"),
+            image: AssetImage("assets/diary.PNG"),
             fit: BoxFit.fill,
           )),
           child: Column(
@@ -126,42 +92,48 @@ class _GunlukKaydetState extends State<GunlukKaydet> {
               Container(
                 height: height * 0.65,
                 width: width,
+                margin: EdgeInsets.all(10.0),
                 // color: CustomColors.pinkBackground,
                 child: Column(
                   children: [
+                     Align(
+                        alignment: Alignment.topRight, //sol-üst köşeye hizalamak
+                        child: Text("Tarih"
+                          , //yerel tarihi almak
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+
                     Expanded(
                       child: Align(
-                        alignment: Alignment.topLeft, //sol-üst köşeye hizalamak
-                        child: Text(
-                          formatDate, //yerel tarihi almak
+                        alignment: Alignment.topRight, //sol-üst köşeye hizalamak
+                        child: Text(formatDate
+                          , //yerel tarihi almak
                           style: TextStyle(fontSize: 18),
                         ),
                       ),
                     ),
+
                     Expanded(
                       child: TextField(
+                        cursorColor: CustomColors.addBackground,
                         controller: uykuBaslangicController,
-                        decoration: InputDecoration(
-                          labelText: "Uyku Başlangıç",
-                        ),
+                        decoration: inputDecoration("Uyku Başlangıç","24:00", Icon(Icons.bed)),
                       ),
                     ),
+
                     //uyku bitiş için bir textfield widget'ı
                     Expanded(
                       child: TextField(
                         controller: uykuBitisController,
-                        decoration: InputDecoration(
-                          labelText: "Uyku Bitiş",
-                        ),
+                        decoration: inputDecoration("Uyku bitiş", "08:00", Icon(Icons.sunny_snowing))
                       ),
                     ),
                     //adım sayısı için bir textfield widget'ı
                     Expanded(
                       child: TextField(
                         controller: adimSayisiController,
-                        decoration: InputDecoration(
-                          labelText: "Adım Sayısı",
-                        ),
+                        decoration: inputDecoration("Adım Sayısı", "10000", Icon(Icons.directions_walk)),
                         keyboardType: TextInputType
                             .number, //sadece sayı girmek için klavye tipi
                       ),
@@ -170,9 +142,7 @@ class _GunlukKaydetState extends State<GunlukKaydet> {
                     Expanded(
                       child: TextField(
                         controller: kalpAtisHiziController,
-                        decoration: InputDecoration(
-                          labelText: "Kalp Atış Hızı",
-                        ),
+                        decoration: inputDecoration("Kalp Atış Hızı", "80", Icon(Icons.monitor_heart)),
                         keyboardType: TextInputType
                             .number, //sadece sayı girmek için klavye tipi
                       ),
@@ -181,9 +151,7 @@ class _GunlukKaydetState extends State<GunlukKaydet> {
                     Expanded(
                       child: TextField(
                         controller: uykuNotuController,
-                        decoration: InputDecoration(
-                          labelText: "Uyku Notu",
-                        ),
+                        decoration: inputDecoration("Uyku Notu", "Notunuzu giriniz", Icon(Icons.edit_note)),
                       ),
                     ),
                     Expanded(
@@ -196,6 +164,7 @@ class _GunlukKaydetState extends State<GunlukKaydet> {
                             semanticLabel: "ekle",
                           ),
                           onPressed: () async {
+                        //    showBottomSheet(gunlukModel?.id);
                             if (uykuBaslangicController.text != null &&
                                 uykuBitisController.text != null &&
                                 adimSayisiController.text != null &&
@@ -217,12 +186,20 @@ class _GunlukKaydetState extends State<GunlukKaydet> {
                               print(heartRate);
                               print(sleepNotes);
 
-                              await GunlukDao().gunlukEkle(date, start, end,
-                                  steps, heartRate, sleepNotes);
+                            //  await GunlukDao().gunlukEkle(date, start, end,
+                              //    steps, heartRate, sleepNotes);
+
                               List<DataRow> tableRows = tabloyaEkle();
                               String adimSayisi = steps.toString();
-                              Future<String> sleepQuality =
+                              Future<String> sleepQuality =GunlukDao().
                                   uykuVerileriniHesapla(start, end, adimSayisi);
+                              String quality= await sleepQuality;
+                            //  await GunlukDao().qualityEkle(date, start, end, steps, heartRate, sleepNotes, quality);
+                            //  saveData(date, start, end, steps, heartRate, sleepNotes, quality);
+                              GunlukDao().createData(date, start, end, steps, heartRate, sleepNotes, quality);
+                              List<Map<String,dynamic>> sleepdata=await GunlukDao().getDateAndSleepQuality();
+
+
                               // Future<List<DataRow>> listTable= tabloyaListeEkle();
                               Navigator.push(
                                 context,
@@ -230,6 +207,8 @@ class _GunlukKaydetState extends State<GunlukKaydet> {
                                   builder: (context) => TableWidget(
                                     tableRows: tableRows,
                                     sleepQuality: sleepQuality,
+                                    sleepdata: sleepdata,
+
                                   ),
                                 ),
                               );
@@ -248,6 +227,43 @@ class _GunlukKaydetState extends State<GunlukKaydet> {
           ),
         ),
       ),
+    );
+  }
+
+  InputDecoration inputDecoration(String text,String format,Icon icon){
+    return InputDecoration(
+      fillColor: CustomColors.addBackground,
+      focusColor: CustomColors.addBackground,
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(
+          color: CustomColors.addBackground,
+        ),
+      ),
+      labelText: text,
+      labelStyle: TextStyle(
+        color:CustomColors.purple2Background,
+      ),
+      floatingLabelStyle: TextStyle(
+        color: CustomColors.purple2Background,
+      ),
+      helperText: "lütfen şu formatta giriniz: $format",
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(
+          color: CustomColors.nightBackground,
+          style: BorderStyle.solid,
+        ),
+      ),
+      prefixIcon: icon,
+      prefixIconColor: CustomColors.purple2Background,
+    );
+  }
+
+  TextStyle style() {
+    return const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.purple,
     );
   }
 }
