@@ -1,4 +1,4 @@
-# sleepveritabani
+# ASLEEP- UYKU TAKİP UYGULAMASI
 
 Bu proje, sleepdata.csv veri setini kullanarak uyku kalitesi tahmini yapmaya yarayan bir mobil uygulamadır. Bu veri seti, uyku başlangıcı, uyku bitişi, yatakta geçirilen süre, adım sayısı ve kalp atış hızı gibi bilgiler içermektedir.
 
